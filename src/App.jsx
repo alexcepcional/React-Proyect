@@ -1,12 +1,12 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { Layout } from "./layouts";
-import { Home } from "./pages/Home";
+import { PublicRouter } from "./router";
 
 function App() {
   return (
     <ChakraProvider>
       <Layout>
-        <Home />
+        <PublicRouter />
       </Layout>
     </ChakraProvider>
   );

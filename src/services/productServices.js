@@ -7,3 +7,10 @@ export async function getAllProducts(limit = 24) {
 export async function getAllCategories() {
  return await axios.get(`https://dummyjson.com/products/categories`)
 }
+
+export async function getProductId(id) {
+ return await axios.get(`https://dummyjson.com/products/${id}`)
+}
+export async function getProductCategory(id) {
+ return await axios.get(`https://dummyjson.com/products/category/${id}`)
+}

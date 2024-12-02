@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   Box,
   Flex,
@@ -15,6 +17,7 @@ import {
   useColorMode,
   Center,
 } from "@chakra-ui/react";
+
 import { MoonIcon, SunIcon, ChevronDownIcon } from "@chakra-ui/icons";
 
 import { CartWidget } from "../CartWidget/CartWidget";
@@ -30,16 +33,18 @@ export function NavBar() {
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box>Un Logo</Box>
+          <Box>
+            <Link to="/">TradeMark</Link>
+          </Box>
 
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              Productos
+              Search categories
             </MenuButton>
             <MenuList height={"250px"} overflowY={"scroll"}>
               {
                 categories.map((category) => {return(
-                <MenuItem key={category.slug}>{category.name}</MenuItem>
+                <MenuItem key={category.slug}><Link to={`/category/${category.slug}`}>{category.name}</Link></MenuItem>
                 )})
               }
             </MenuList>
@@ -75,13 +80,13 @@ export function NavBar() {
                   </Center>
                   <br />
                   <Center>
-                    <p>Usuario</p>
+                    <p>User</p>
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Botón 1</MenuItem>
-                  <MenuItem>Botón 2</MenuItem>
-                  <MenuItem>Botón 3</MenuItem>
+                  <MenuItem>Button 1</MenuItem>
+                  <MenuItem>Button 2</MenuItem>
+                  <MenuItem>Button 3</MenuItem>
                 </MenuList>
               </Menu>
             </Stack>

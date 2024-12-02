@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Rating = ({ rating, numReviews }) => {
   const starColor = useColorModeValue('gray.400', 'white') + ' !important'; 
@@ -40,6 +41,7 @@ const Rating = ({ rating, numReviews }) => {
 
 export const ItemCard = ({ data }) => {
   return (
+    <Link to={`/item/${data.id}`}>
     <Box
       bg={useColorModeValue('white', 'gray.800')}
       maxW="xs"
@@ -49,7 +51,7 @@ export const ItemCard = ({ data }) => {
       position="relative"
       w="240px"
       h="380px"
-      m={4} // Agrega espacio entre las tarjetas
+      m={4} 
     >
       {data.isNew && (
         <Circle size="10px" position="absolute" top={2} right={2} bg="red.200" />
@@ -70,23 +72,19 @@ export const ItemCard = ({ data }) => {
           <Box fontSize="xl" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
             {data.name}
           </Box>
-          <Tooltip label="Add to cart" bg="white" placement={'top'} color={'gray.800'} fontSize={'1.2em'}>
-            <chakra.a href={'#'} display={'flex'}>
-              <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-            </chakra.a>
-          </Tooltip>
         </Flex>
 
         <Flex justifyContent="space-between" alignContent="center">
           <Rating rating={data.rating} numReviews={data.reviews.length} />
           <Box fontSize="xl" color={useColorModeValue('gray.800', 'white')}>
             <Box as="span" color={'gray.600'} fontSize="lg">
-              £
+              $
             </Box>
             {data.price.toFixed(2)}
           </Box>
         </Flex>
       </Box>
     </Box>
+    </Link>
   );
 };
