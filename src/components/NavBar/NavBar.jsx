@@ -22,6 +22,7 @@ import { MoonIcon, SunIcon, ChevronDownIcon } from "@chakra-ui/icons";
 
 import { CartWidget } from "../CartWidget/CartWidget";
 import { useCategories } from "../../hooks/useCategories";
+import { Events } from "../../pages";
 
 export function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -49,6 +50,8 @@ export function NavBar() {
               }
             </MenuList>
           </Menu>
+
+          <Link to={'/Events'}>Events</Link>
 
           <Flex alignItems={"center"}>
             <CartWidget />

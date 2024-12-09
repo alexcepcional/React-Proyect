@@ -11,9 +11,9 @@ export const NotFound = () => {
     marginTop={"32%"}
     >
     <Heading> 404 Not found</Heading>
-    <Text>¡Ups! Lo sentimos, no pudimos encontrar lo que estás buscando.</Text>
+    <Text>¡Oops! We couldn't find what you're looking for.</Text>
     <Button>
-        <Link to={"/"}>Volver a Inicio</Link>
+        <Link to={"/"}>Back to Home</Link>
     </Button>
     </Flex>
     )

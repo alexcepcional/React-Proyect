@@ -11,6 +11,11 @@ export async function getAllCategories() {
 export async function getProductId(id) {
  return await axios.get(`https://dummyjson.com/products/${id}`)
 }
+
 export async function getProductCategory(id) {
  return await axios.get(`https://dummyjson.com/products/category/${id}`)
+}
+
+export async function searchProduct(query) {
+ return await axios.get(`https://dummyjson.com/products/search?q=${query}`)
 }
